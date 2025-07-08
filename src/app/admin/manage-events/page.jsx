@@ -16,7 +16,7 @@ export default function ManageEvents() {
   const fetchEventsOfAdmin = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/owner/fetch-events`,
+        `/api/owner/fetch-events`,
         {
           method: "GET",
           headers: {

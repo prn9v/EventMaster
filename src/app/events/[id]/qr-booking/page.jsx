@@ -45,7 +45,7 @@ export default function QRBookingPage({ params }) {
   
         if (token) {
           const response = await fetch(
-            `http://localhost:3000/api/auth/session`,
+            `/api/auth/session`,
             {
               headers: {
                 Authorization: `Bearer ${token}`, // Sending token in the Authorization header

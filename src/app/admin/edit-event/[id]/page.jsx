@@ -36,7 +36,7 @@ export default function EditEvent({ params }) {
   const fetchEventDetails = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/owner/fetch-events/edit/${id}`,
+        `/api/owner/fetch-events/edit/${id}`,
         {
           method: "GET",
           headers: {
@@ -68,7 +68,7 @@ export default function EditEvent({ params }) {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/owner/fetch-events/edit/${id}`,
+        `/api/owner/fetch-events/edit/${id}`,
         {
           method: "PUT",
           headers: {

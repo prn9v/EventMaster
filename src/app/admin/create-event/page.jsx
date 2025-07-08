@@ -46,7 +46,7 @@ export default function CreateEvent() {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/owner/create-event`,
+        `/api/owner/create-event`,
         {
           method: "POST",
           headers: {

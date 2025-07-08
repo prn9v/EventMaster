@@ -10,7 +10,7 @@ export default function LandingPage() {
   // Fetch Events from API
   const fetchEvents = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/events", {
+      const response = await fetch("/api/events", {
         method: "GET",
       });
 

@@ -9,7 +9,7 @@ export default function ApproveEvents() {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/events", {
+      const response = await fetch("/api/events", {
         method: "GET",
       });
 
@@ -32,7 +32,7 @@ export default function ApproveEvents() {
       );
 
       const response = await fetch(
-        `http://localhost:3000/api/events/${eventId}`,
+        `/api/events/${eventId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

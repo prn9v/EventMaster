@@ -15,7 +15,7 @@ export default function MessagesPage() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/message`, {
+        const response = await fetch(`/api/message`, {
           method: "GET",
         });
         const result = await response.json();
@@ -37,7 +37,7 @@ export default function MessagesPage() {
 
   const handleDelete = async (messageId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/message`, {
+      const response = await fetch(`/api/message`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messageId }), // Send messageId in body

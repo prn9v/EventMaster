@@ -25,7 +25,7 @@ export default function AuthPage() {
   
     try {
       const response = await fetch(
-        `http://localhost:3000/api/auth/${activeTab}`,
+        `/api/auth/${activeTab}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

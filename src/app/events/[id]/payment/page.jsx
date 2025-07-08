@@ -52,7 +52,7 @@ export default function QRPaymentPage({ params }) {
   }, [eventId]);
 
   // Generate a QR code URL
-  const qrCodeUrl = `http://localhost:3000/events/${eventId}/qr-booking`;
+  const qrCodeUrl = `/events/${eventId}/qr-booking`;
 
   const formatDateRange = (startDate, endDate, startTime, endTime) => {
     const formattedStartDate = new Intl.DateTimeFormat("en-GB", {

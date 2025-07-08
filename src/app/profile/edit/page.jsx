@@ -24,7 +24,7 @@ export default function EditProfilePage() {
         return;
       }
 
-      const response = await fetch(`http://localhost:3000/api/auth/session`, {
+      const response = await fetch(`/api/auth/session`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -70,7 +70,7 @@ export default function EditProfilePage() {
     
 
     try {
-      const response = await fetch(`http://localhost:3000/api/profile/update`, {
+      const response = await fetch(`/api/profile/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

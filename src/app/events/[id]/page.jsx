@@ -12,7 +12,7 @@ export default function EventPage({ params }) {
   const fetchEvent = async (eventId) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/events/${eventId}`,
+        `/api/events/${eventId}`,
         {
           method: "GET",
           headers: {

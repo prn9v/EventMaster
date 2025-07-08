@@ -30,7 +30,7 @@ export default function ProfilePage() {
         return;
       }
 
-      const response = await fetch(`http://localhost:3000/api/auth/session`, {
+      const response = await fetch(`/api/auth/session`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -47,7 +47,7 @@ export default function ProfilePage() {
           const events = await Promise.all(
             fetchedUser.eventsBooked.map(async (eventId) => {
               const eventResponse = await fetch(
-                `http://localhost:3000/api/events/${eventId}`
+                `/api/events/${eventId}`
               );
               if (eventResponse.ok) {
                 return await eventResponse.json();

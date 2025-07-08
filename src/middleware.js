@@ -2,7 +2,9 @@ import { NextResponse } from "next/server";
 
 const allowedOrigins = [
   
-  "http://localhost:3000",
+  "event-master-ten.vercel.app",
+  "https://event-master-pranav-deshmukhs-projects-2a38252e.vercel.app/",
+  "https://event-master-git-main-pranav-deshmukhs-projects-2a38252e.vercel.app/"
 ];
 
 const corsOptions = {

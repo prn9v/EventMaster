@@ -21,7 +21,7 @@ const Contact = () => {
     console.log("Form submitted:", formData);
   
     try {
-      const response = await fetch("http://localhost:3000/api/message", {
+      const response = await fetch("/api/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
