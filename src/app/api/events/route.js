@@ -12,8 +12,8 @@ export async function GET(req) {
 
     if (!events || events.length === 0) {
       return NextResponse.json(
-        { message: "No events found" },
-        { status: 404 }
+        { events: [], message: "No events found" },
+        { status: 200 }
       );
     }
 

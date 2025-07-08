@@ -27,29 +27,22 @@ export default function LandingPage() {
 
   const events = allEvents.filter((event) => event.status === "Approved");
 
-  // Select Random Featured Events
-  const getFeaturedEvents = (events) => {
-    if (!events || events.length === 0) return [];
-    const shuffled = [...events].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 6);
-  };
-
   // Initial Fetch of Events
   useEffect(() => {
     fetchEvents();
   }, []);
-  
+
+  // Only shuffle on the client to avoid hydration mismatch
   useEffect(() => {
-    if (events.length > 0) {
-      const newFeaturedEvents = getFeaturedEvents(events);
-      
-      // Prevent unnecessary re-renders
+    if (typeof window !== "undefined" && events.length > 0) {
+      const shuffled = [...events].sort(() => 0.5 - Math.random());
+      const newFeaturedEvents = shuffled.slice(0, 6);
       if (JSON.stringify(newFeaturedEvents) !== JSON.stringify(featuredEvents)) {
         setFeaturedEvents(newFeaturedEvents);
       }
     }
-  }, [events]); // Runs only when `events` change
-  
+    // eslint-disable-next-line
+  }, [events]);
 
   const faqs = [
     {

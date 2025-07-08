@@ -11,14 +11,15 @@ export default function EventsPage() {
   const fetchEvents = async () => {
     try {
       const response = await fetch("http://localhost:3000/api/events", {
-        method: "GET", // Corrected method
+        method: "GET",
       });
 
       if (response.ok) {
         const data = await response.json();
-        setEvents(data.events); // Assuming setAllEvents is correctly defined
+        setEvents(data.events);
       } else {
-        console.error("Failed to fetch Events:", response.message); // Corrected to use statusText
+        const errorData = await response.json();
+        console.error("Failed to fetch Events:", errorData.message || response.statusText);
       }
     } catch (error) {
       console.error("Error fetching Events data:", error);
@@ -127,7 +128,7 @@ export default function EventsPage() {
           </div>
 
           {filteredEvents.length === 0 && (
-            <p className="text-center text-white mt-8">
+            <p className="text-center text-red-500 mt-8">
               No events found. Please try a different search or category.
             </p>
           )}
