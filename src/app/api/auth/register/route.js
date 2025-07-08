@@ -6,9 +6,8 @@ const jwt = require("jsonwebtoken");
 export async function POST(req) {
   try {
     await connectDB(); // Ensure MongoDB connection
-    console.log('userdata: ', req);
 
-    const { name, email, password, role } = await req.body.userData; 
+    const { name, email, password, role } = await req.json(); 
 
     if (!name || !email || !password || !role) {
       return NextResponse.json({ message: 'All fields are required' }, { status: 400 });
@@ -20,10 +19,15 @@ export async function POST(req) {
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
-    const newUser = new User({ name, email, password: hashedPassword, role });
-    await newUser.save();
+    const user = new User({ name, email, password: hashedPassword, role });
+    await user.save();
 
-    return NextResponse.json({ user: newUser }, { status: 201 });
+    // Create JWT token
+    const token = jwt.sign({ id: user._id, email: user.email }, "secret", {
+      expiresIn: "1h",
+    });
+
+    return NextResponse.json({ user, token }, { status: 201 });
   } catch (error) {
     console.error('Registration error:', error);
     return NextResponse.json({ message: 'Registration failed' }, { status: 500 });

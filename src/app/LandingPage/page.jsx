@@ -126,7 +126,7 @@ export default function LandingPage() {
                   className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
                 >
                   <img
-                    src={event.eventPhoto || "/placeholder-image.jpg"} // Fallback image
+                    src={event.eventPhoto || "/3.jpg"}
                     alt={event.eventName || "Event"}
                     className="w-full h-48 object-cover"
                   />
